@@ -13,7 +13,7 @@
 </head>
 
 
-<body class="p-0 m-0">
+<body class="p-0 m-0 ">
 
 
     <!-- HEADER -->
@@ -438,19 +438,44 @@
             <div class="w-full lg:w-2/3 rounded-[10px] overflow-hidden shadow-xl">
 
                 <!-- Section Container: Holds the responsive height -->
+                <!-- ******* Added relative positioning for button placement ******* -->
                 <section class="relative w-full min-h-[400px] lg:min-h-[580px]">
 
-                    <video class="absolute inset-0 w-full h-full object-cover z-20" autoplay muted loop playsinline>
-                        <source
-                            src="https://assets.mixkit.co/videos/preview/mixkit-car-drives-on-a-highway-325-large.mp4"
-                            type="video/mp4">
+                    <video id="mainVideo" class="absolute inset-0 w-full h-full object-cover z-0" autoplay muted loop
+                        playsinline>
+                        <source src="/WhatsApp Video 2025-12-12 at 21.22.21_ae3814ff.mp4" type="video/mp4">
 
                     </video>
 
-                    <div class="absolute inset-0 bg-black/40 z-20"></div>
+                    <!-- 
+                ==========================================================
+                *** NEW: Play/Pause Button in Top Right Corner ***
+                ==========================================================
+                -->
+                    <button id="playPauseBtn"
+                        class="absolute top-4 right-4 z-30 p-2 bg-black/50 hover:bg-black/70 rounded-full text-white transition-colors duration-200 focus:outline-none">
+                        <!-- Initial icon: Pause (assuming video starts playing) -->
+                        <!-- You'll need to include a library like Heroicons, Font Awesome, or use SVGs -->
+                        <svg id="pauseIcon" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zM7 8a1 1 0 012 0v4a1 1 0 11-2 0V8zm5 0a1 1 0 012 0v4a1 1 0 11-2 0V8z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                        <svg id="playIcon" class="w-6 h-6 hidden" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                    </button>
+                    <!-- 
+                ==========================================================
+                *** END OF NEW BUTTON ***
+                ==========================================================
+                -->
 
                     <!-- Content Overlay (Corrected positioning and classes - z-20) -->
-                    <!-- Replaced invalid 'relative top-75 left-8 z-10 h-ful' with bottom-0 positioning -->
                     <div class="absolute bottom-0 left-0 right-0 p-8 z-10 text-white">
 
                         <p class="text-[30px] md:text-[40px] font-semibold">
@@ -473,10 +498,10 @@
 
             <!-- ===== SECTION 2: CONTENT CARD (W-FULL on mobile/tab, 1/3 width on laptop) ===== -->
             <div class="w-full lg:w-1/3 h-[480px] lg:h-[580px]
-            bg-[url('https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Homepage-Features-Desktop.png')]
-            bg-cover bg-no-repeat bg-center-top
-            rounded-lg shadow-xl
-            flex flex-col items-center justify-end text-white p-8">
+        bg-[url('https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Homepage-Features-Desktop.png')]
+        bg-cover bg-no-repeat bg-center-top
+        rounded-lg shadow-xl
+        flex flex-col items-center justify-end text-white p-8">
                 <div class="text-start w-full">
                     <h2 class="text-3xl font-bold ps-2">Features That Come Standard</h2>
                     <button
@@ -487,7 +512,6 @@
             </div>
         </div>
     </div>
-
 
     <!-- Put this script at the end of the body so DOM is already present -->
 
@@ -508,7 +532,7 @@
     <div
         class="w-full max-w-7xl mx-auto px-4 mt-10 py-12 lg:py-24 flex flex-col lg:flex-row justify-between items-start">
         <div class="w-full lg:w-[70%] mb-8 lg:mb-0">
-            >
+
             <h2 class="text-4xl lg:text-5xl font-extrabold text-gray-900 mb-3">
                 Find Your Charge
             </h2>
@@ -685,6 +709,44 @@
 
         </ul>
     </div>
+    <!-- last -fixed div -->
+   <div class="fixed bottom-0 left-0 right-0 z-50 bg-white shadow-2xl shadow-gray-500/30 py-2">
+    <!-- Inner container to center and limit the width of the buttons -->
+    <!-- py-2 on the main div gives less vertical space than the previous py-4 -->
+    <div class="flex flex-col md:flex-row items-center justify-center gap-3 w-full max-w-[1200px] mx-auto px-4">
+        
+        <!-- Button 1: Ask a Question -->
+        <button class="flex items-center justify-between w-full md:w-1/3 xl:w-1/4 h-10 p-3 
+                       bg-gray-100 text-gray-800 
+                       rounded-lg shadow-md hover:bg-gray-200 transition duration-150">
+            
+            <div class="flex items-center">
+                <!-- Chat Icon (Dark Grey/Black) -->
+                <svg class="w-5 h-5 mr-2 text-gray-800" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2v10zM11 7h2v2h-2V7zm0 4h2v2h-2v-2zm-4 0h2v2H7v-2zm8 0h2v2h-2v-2z"></path>
+                </svg>
+                <span class="text-sm font-semibold whitespace-nowrap">Ask a Question</span>
+            </div>
+
+            <!-- The subtle grey box/placeholder on the right side of the first button -->
+            <div class="w-5 h-5 bg-gray-300 rounded-md"></div> 
+        </button>
+
+        <!-- Button 2: Schedule a Drive Today -->
+        <button class="flex items-center justify-center w-full md:w-1/3 xl:w-1/4 h-10 p-3 
+                       bg-white border border-gray-200 text-gray-800 
+                       rounded-lg shadow-md hover:bg-gray-50 transition duration-150">
+            
+            <!-- Steering Wheel Icon (Blue) -->
+            <svg class="w-5 h-5 mr-2 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2a10 10 0 0110 10c0 5.523-4.477 10-10 10S2 17.523 2 12A10 10 0 0112 2z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10h.01M12 16a4 4 0 100-8 4 4 0 000 8z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2v2m-6 6H2m20 0h-4"></path>
+            </svg>
+            <span class="text-sm font-semibold whitespace-nowrap">Schedule a Drive Today</span>
+        </button>
+    </div>
+</div>
 
 
 
@@ -1097,7 +1159,31 @@
             updateCarouselState();
             window.addEventListener('resize', updateCarouselState);
         });
+        // video js
+        // Get the elements
+        const video = document.getElementById('mainVideo');
+        const playPauseBtn = document.getElementById('playPauseBtn');
+        const playIcon = document.getElementById('playIcon');
+        const pauseIcon = document.getElementById('pauseIcon');
 
+        // Add event listener to the button
+        playPauseBtn.addEventListener('click', togglePlayPause);
+
+        function togglePlayPause() {
+            if (video.paused || video.ended) {
+                // Video is paused or ended, so play it
+                video.play();
+                // Show the Pause icon and hide the Play icon
+                playIcon.classList.add('hidden');
+                pauseIcon.classList.remove('hidden');
+            } else {
+                // Video is playing, so pause it
+                video.pause();
+                // Show the Play icon and hide the Pause icon
+                pauseIcon.classList.add('hidden');
+                playIcon.classList.remove('hidden');
+            }
+        }
 
     </script>
 </body>
